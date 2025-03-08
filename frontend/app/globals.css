@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode colors */
+  --background: #FFFFFF;
+  --foreground: #121212;
+  --primary: #0057B7;
+  --primary-light: #3378C7;
+  --primary-dark: #004494;
+  --secondary: #F5F5F5;
+  --secondary-dark: #E0E0E0;
+  --success: #27AE60;
+  --success-light: #2ECC71;
+  --success-dark: #219653;
+  --warning: #F39C12;
+  --warning-light: #F7B731;
+  --warning-dark: #D68910;
+  --error: #E74C3C;
+  --error-light: #F16C5D;
+  --error-dark: #C0392B;
+  --highlight: #9B59B6;
+  --highlight-light: #AF7AC5;
+  --highlight-dark: #8E44AD;
+  --card: #FFFFFF;
+  --card-foreground: #121212;
+  --border: #E0E0E0;
+  --input: #F5F5F5;
+  --ring: #0057B7;
+  --toast-bg: #FFFFFF;
+  --toast-color: #121212;
+}
+
+.dark {
+  /* Dark mode colors */
+  --background: #121212;
+  --foreground: #F5F5F5;
+  --primary: #3378C7;
+  --primary-light: #4A89D4;
+  --primary-dark: #0057B7;
+  --secondary: #1E1E1E;
+  --secondary-dark: #2D2D2D;
+  --success: #2ECC71;
+  --success-light: #3EE483;
+  --success-dark: #27AE60;
+  --warning: #F7B731;
+  --warning-light: #F9C74F;
+  --warning-dark: #F39C12;
+  --error: #F16C5D;
+  --error-light: #F3867A;
+  --error-dark: #E74C3C;
+  --highlight: #AF7AC5;
+  --highlight-light: #C39BD3;
+  --highlight-dark: #9B59B6;
+  --card: #1E1E1E;
+  --card-foreground: #F5F5F5;
+  --border: #2D2D2D;
+  --input: #2D2D2D;
+  --ring: #3378C7;
+  --toast-bg: #1E1E1E;
+  --toast-color: #F5F5F5;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-foreground hover:bg-secondary-dark;
+  }
+  
+  .btn-success {
+    @apply bg-success text-white hover:bg-success-dark;
+  }
+  
+  .btn-warning {
+    @apply bg-warning text-white hover:bg-warning-dark;
+  }
+  
+  .btn-error {
+    @apply bg-error text-white hover:bg-error-dark;
+  }
+  
+  .btn-highlight {
+    @apply bg-highlight text-white hover:bg-highlight-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-transparent hover:bg-secondary hover:text-foreground;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-secondary hover:text-foreground;
+  }
+  
+  .btn-link {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card {
+    @apply rounded-lg border border-border bg-card p-6 shadow-sm transition-all;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Focus outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+} 
